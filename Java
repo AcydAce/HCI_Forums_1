@@ -1,0 +1,13 @@
+let O = true
+let A = true
+let B = true;
+let AB = true;
+
+Idk
+
+//O accepts O
+//A accepts A, O
+//B accepts B, A, O
+//AB accepts AB, B, A, O
+// Negative Only accepts negatives
+// Positives accepts both negatives and positives
