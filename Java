@@ -1,13 +1,70 @@
-let O = true
-let A = true
-let B = true;
-let AB = true;
+const isEligible = (donor, reciever) => {
+    const Oplus = ["AB+", "A+", "B+", "O+"];
+    const Bplus = ["AB+", "B+"];
+    const Bminus = ["AB+", "AB-", "B+", "B-",];
+    const Aplus = ["AB+", "A+"];
+    const Aminus = ["AB+", "AB-", "A+", "A-"];
+    const ABminus = ["AB+", "AB-"];
 
-Idk
+    if (donor == "O-") {
+        return true
+    }
+    else if (donor == "O+") {
+        for (let i = 0; i < Oplus.length; i++) {
+            if (reciever == Oplus[i]) {
+                return true;
+            }
+        }
+        return false;
+    }
+    else if (donor == "B+") {
+        for (let i = 0; i < Bplus; i++) {
+            if (reciever == Bplus[i]) {
+                return true;
+            }
+        }
+        return false;
+    }
+    else if (donor == "B-") {
+        for (let i = 0; i < Bminus.legth; i++) {
+            if (reciever == Bminus[i]) {
+                return true;
+            }
+        }
+        return false;
+    }
+    else if (donor == "A+") {
+        for (let i = 0; i < Aplus.legth; i++) {
+            if (reciever == Aplus[i]) {
+                return true;
+            }
+        }
+        return false;
+    }
+    else if (donor == "A-") {
+        for (let i = 0; i < Aminus.lengthl; i++) {
+            if (reciever == Aminus[i]) {
+                return true;
+            }
+        }
+        return false;
+    }
+    else if (donor == "AB+") {
+        if (reciever == donor) {
+            return true;
+        }
+        return false;
+    }
+    else if (donor == "AB-") {
+        for (let i = 0; i < ABminus.length; i++) {
+            if (reciever == ABminus[i]) {
+                return true;
+            }
+        }
+        return false;
+    }
+}
 
-//O accepts O
-//A accepts A, O
-//B accepts B, A, O
-//AB accepts AB, B, A, O
-// Negative Only accepts negatives
-// Positives accepts both negatives and positives
+console.log(isEligible("O+", "A+"));
+console.log(isEligible("A-", "B-"));
+console.log(isEligible("A-", "AB+"));
